@@ -15742,3 +15742,582 @@ Processing by UsersController#user_with_most_tickets as HTML
 Completed 200 OK in 278ms (Views: 194.0ms | ActiveRecord: 7.0ms)
 
 
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:14:26 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/josefina/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EventsController#upcoming_events as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::Events):
+  
+app/controllers/events_controller.rb:56:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:15:13 -0400
+Processing by EventsController#upcoming_events as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::Events):
+  
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:15:53 -0400
+Processing by EventsController#upcoming_events as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant EventsController::Events):
+  
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:16:01 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.5ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:13
+  Rendered events/upcoming_events.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 1084ms (Views: 1054.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:16:10 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 40ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/new" for ::1 at 2019-04-11 17:16:19 -0400
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 51ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/events" for ::1 at 2019-04-11 17:16:40 -0400
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n1GviadP19N44Gt1eERBdvMeSwQV39vy9Cv2KffZ/pmvTfsF0Y5kSiW71TeV/HpTp2nKX38ml1DIQsfQ9SH+DQ==", "event"=>{"name"=>"Paloma Mami", "description"=>"wuju", "event_venue_id"=>"1", "start_date"=>"06-06-2019"}, "commit"=>"Save Event"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mEvent Create (1.3ms)[0m  [1m[32mINSERT INTO "events" ("name", "description", "start_date", "event_venue_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Paloma Mami"], ["description", "wuju"], ["start_date", "2019-06-06"], ["event_venue_id", 1], ["created_at", "2019-04-11 21:16:40.045078"], ["updated_at", "2019-04-11 21:16:40.045078"]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/events_controller.rb:22
+Redirected to http://localhost:3000/events/4
+Completed 302 Found in 18ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/events/4" for ::1 at 2019-04-11 17:16:40 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:9
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:14
+  Rendered events/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 34ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:16:41 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:16:47 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:13
+  Rendered events/upcoming_events.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 27.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:17:43 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:   <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290084523060'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:19:03 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:    <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290041658980'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:19:11 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:    <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290039179100'
+Started GET "/events" for ::1 at 2019-04-11 17:20:13 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered events/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 52ms (Views: 47.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:21:19 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 34ms (Views: 28.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:21:57 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:    <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290032849000'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:22:36 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:    <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290058860140'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:22:40 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th></th>
+     8:   </tr>
+     9:  
+    10:    <% @events.each do |event| %>
+    11:     <tr>
+    12:       <td><%= event.name %></td>
+    13:       <td><%= event.description %></td>
+  
+app/views/events/upcoming_events.html.erb:10:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290074216520'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:24:38 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.3ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"events", :id=>nil}, missing required keys: [:id]):
+    23:   <% end %>
+    24: </table>
+    25: 
+    26: <%= link_to 'Edit', edit_event_path(@event) %> |
+    27: <%= link_to 'Back', events_path %>
+  
+app/views/events/upcoming_events.html.erb:26:in `_app_views_events_upcoming_events_html_erb___1319123843610603605_70290056059240'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:25:08 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 48ms (Views: 43.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:25:15 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:25:31 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  Rendered events/upcoming_events.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 22.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:25:33 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 52ms (Views: 47.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:26:52 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:26:54 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 40ms (Views: 36.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:04 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 68ms (Views: 50.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:07 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:08 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:08 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.5ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:08 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.2ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mCACHE EventVenue Load (0.0ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:27:28 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `>' for nil:NilClass):
+  
+app/controllers/events_controller.rb:58:in `block in upcoming_events'
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:28:32 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `>' for nil:NilClass):
+  
+app/controllers/events_controller.rb:58:in `block in upcoming_events'
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:28:55 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `>' for nil:NilClass):
+  
+app/controllers/events_controller.rb:59:in `block in upcoming_events'
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:29:25 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `-' for nil:NilClass):
+  
+app/controllers/events_controller.rb:59:in `block in upcoming_events'
+app/controllers/events_controller.rb:57:in `upcoming_events'
+Started GET "/events/upcoming_events" for ::1 at 2019-04-11 17:29:59 -0400
+Processing by EventsController#upcoming_events as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:57
+  Rendering events/upcoming_events.html.erb within layouts/application
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  [1m[36mEventVenue Load (0.1ms)[0m  [1m[34mSELECT  "event_venues".* FROM "event_venues" WHERE "event_venues"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/upcoming_events.html.erb:14
+  Rendered events/upcoming_events.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 54ms (Views: 40.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/events" for ::1 at 2019-04-11 17:30:01 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:15
+  Rendered events/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/tickets" for ::1 at 2019-04-11 17:32:48 -0400
+Processing by TicketsController#index as HTML
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  ↳ app/views/tickets/index.html.erb:10
+  Rendered tickets/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 57ms (Views: 48.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/tickets/1" for ::1 at 2019-04-11 17:32:50 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:15
+  Rendering tickets/show.html.erb within layouts/application
+  Rendered tickets/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 35ms (Views: 30.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tickets/1/edit" for ::1 at 2019-04-11 17:32:51 -0400
+Processing by TicketsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:25
+  Rendering tickets/edit.html.erb within layouts/application
+  Rendered tickets/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 50ms (Views: 46.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/tickets/1" for ::1 at 2019-04-11 17:32:53 -0400
+Processing by TicketsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PGI+81UxAeS5qEJ4flQVZnAYXOWJOQStLrvUZN0JynT0EioeKHyAjaPp+Ftj+cxDbzC4I8Lr+TjXjGGtmnIxiA==", "ticket"=>{"ticket_type_id"=>"1", "order_id"=>"1"}, "commit"=>"Update Ticket", "id"=>"1"}
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:44
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tickets_controller.rb:46
+  [1m[36mTicketType Load (0.3ms)[0m  [1m[34mSELECT  "ticket_types".* FROM "ticket_types" WHERE "ticket_types"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:46
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:46
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tickets_controller.rb:46
+Redirected to http://localhost:3000/tickets/1
+Completed 302 Found in 38ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/tickets/1" for ::1 at 2019-04-11 17:32:53 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tickets_controller.rb:15
+  Rendering tickets/show.html.erb within layouts/application
+  Rendered tickets/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tickets" for ::1 at 2019-04-11 17:32:54 -0400
+Processing by TicketsController#index as HTML
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  ↳ app/views/tickets/index.html.erb:10
+  Rendered tickets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.2ms)
+
+

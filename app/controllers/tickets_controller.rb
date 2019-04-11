@@ -1,8 +1,14 @@
 class TicketsController < ApplicationController
 
 	def index
-		@tickets = Ticket.where(ticket_type_id: params[:ticket_type_id])
+
+		if params[:ticket_type_id].blank?
+			@tickets = Ticket.all
+		else
+			@tickets = Ticket.where(ticket_type_id: params[:ticket_type_id])
+		end
 	end
+
 
 	def show
 	

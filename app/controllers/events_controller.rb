@@ -52,6 +52,17 @@ class EventsController < ApplicationController
 	    end
 	end
 
+	def upcoming_events
+		list = []
+		for e in Event.all do
+			if (e[:start_date]- Date.today  < 3.months) && (e[:start_date] > Date.today)
+				list << e
+			end
+		end
+
+		@events = list
+	end
+
 	private
 		def event_params
 			params.require(:event).permit(:name, :description, :event_venue_id, :start_date)
