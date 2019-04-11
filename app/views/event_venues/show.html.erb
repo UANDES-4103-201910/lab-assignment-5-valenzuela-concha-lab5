@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @event_venue.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @event_venue.address %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @event_venue.capacity %>
+</p>
+
+<%= link_to 'Edit', edit_event_venue_path(@event_venue) %> |
+<%= link_to 'Back', event_venues_path %>

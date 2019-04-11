@@ -1,0 +1,34 @@
+<h1> New Ticket </h1>
+
+<%= form_with scope: :ticket, url: tickets_path, local: true do |form| %>
+
+	<% if @ticket.errors.any? %>
+    	<div id="error_explanation">
+      		<h2>
+        		<%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:
+      		</h2>
+     		 <ul>
+        		<% @ticket.errors.full_messages.each do |msg| %>
+          			<li><%= msg %></li>
+        		<% end %>
+      		</ul>
+    	</div>
+  	<% end %>
+
+  	<p>
+		<%= form.label :ticket_type_id %><br>
+		<%= form.text_field :ticket_type_id %>
+	</p>
+
+	<p>
+		<%= form.label :order_id %><br>
+		<%= form.text_field :order_id %>
+	</p>
+
+	<p>
+		<%= form.submit %>
+	</p>
+
+	<% end %>
+
+	<%= link_to 'Back', tickets_path %>

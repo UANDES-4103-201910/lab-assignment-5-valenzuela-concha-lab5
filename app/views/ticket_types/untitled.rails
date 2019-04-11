@@ -1,0 +1,18 @@
+<p>
+	<strong>Event:</strong>
+	<%= Event.find(@ticket_type.event_id)[:name]%>
+</p>
+
+<p>
+	<strong>Price:</strong>
+	<%= @ticket_type.price %>
+</p>
+
+<p>
+	<strong>TicketZone:</strong>
+	<%= TicketZone.find(@ticket_type.ticket_zone_id)[:zone] %>
+</p>
+
+
+<%= link_to 'Edit', edit_ticket_type_path(@ticket_type)%> |
+<%= link_to 'Back', ticket_types_path %>

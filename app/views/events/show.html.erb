@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>EventVenue:</strong>
+  <%= EventVenue.find(@event.event_venue_id)[:name] %>
+</p>
+
+<p>
+  <strong>StartDate:</strong>
+  <%= @event.start_date%>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

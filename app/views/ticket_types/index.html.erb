@@ -1,0 +1,26 @@
+<h1>Listing Ticket Types</h1>
+ <%= link_to 'New Ticket Type', new_ticket_type_path %>
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Price</th>
+    <th>Ticket Zone</th>
+    <th></th>
+  </tr>
+ 
+  <% @ticket_types.each do |ticket_type| %>
+    <tr>
+      <td><%= Event.find(ticket_type.event_id)[:name] %></td>
+      <td><%= ticket_type.price %></td>
+      <td><%= TicketZone.find(ticket_type.ticket_zone_id)[:zone] %></td>
+      <td><%= link_to 'Show', ticket_type_path(ticket_type) %></td>
+      <td><%= link_to 'Tickets', ('http://localhost:3000/ticket_types/'+ ticket_type.id.to_s + '/tickets') %></td>
+      <td><%= link_to 'Edit', edit_ticket_type_path(ticket_type) %></td>
+      <td><%= link_to 'Destroy', ticket_type_path(ticket_type),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', 'http://localhost:3000'%>

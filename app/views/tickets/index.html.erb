@@ -1,0 +1,23 @@
+<h1>Listing Tickets</h1>
+ <%= link_to 'New Ticket', new_ticket_path %>
+<table>
+  <tr>
+    <th>Ticket Type </th>
+    <th>Order</th>
+    <th></th>
+  </tr>
+ 
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.ticket_type_id %></td>
+      <td><%= ticket.order_id %></td>
+      <td><%= link_to 'Show', ticket_path(ticket) %></td>
+      <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+      <td><%= link_to 'Destroy', ticket_path(ticket),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', 'http://localhost:3000'%>
