@@ -3,10 +3,6 @@ class UsersController < ApplicationController
 
 	def index
 		@user = User.all
-		respond_to do |format|
-         	format.html {render notice: "Your data was sucessfully loaded. Thanks"}
-          	format.json { render text: User.last.to_json }
-     	end
 	end
 
 	def show
@@ -55,6 +51,26 @@ class UsersController < ApplicationController
 	      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
 	      format.json { head :no_content }
 	    end
+  	end
+
+  	def user_with_most_tickets
+  		max = 0
+  		for u in User.all do
+  			contador = 0
+  			for o in Order.all do
+  				if o[:user_id] == u[:id]
+  					for t in Ticket.all do
+  						if o[:id] == t[:order_id]
+  							contador += 1
+  						end
+  					end
+  				end
+  			end
+  			if contador >= max
+  				max = contador
+  				@user = u
+  			end
+  		end
   	end
 
 	private

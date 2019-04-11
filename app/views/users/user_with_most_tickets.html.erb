@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<table>
+  <tr>
+    <th>Tickets ID</th>
+    <th></th>
+  </tr>
+
+<% for order in Order.all %>
+      <% for ticket in Ticket.all %>
+        <% if order[:user_id] == @user.id && order[:id] == ticket[:order_id] %>
+          <tr>
+            <td><%= ticket[:id] %></td>
+          </tr>
+        <% end %>
+      <% end %>
+<% end %>
+</table>
+ 
+<%= link_to 'Back', users_path %>
