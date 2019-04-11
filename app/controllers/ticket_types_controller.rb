@@ -2,10 +2,6 @@ class TicketTypesController < ApplicationController
 
 	def index
 		@ticket_types = TicketType.all
-
-		respond_to do |format|
-			format.json {render json: @ticket_types}
-		end
 	end
 
 	def show
@@ -23,30 +19,38 @@ class TicketTypesController < ApplicationController
 
 	def create
 		@ticket_type = TicketType.new(ticket_type_params)
-	 
-		if @ticket_type.save
-	  		redirect_to @ticket_type
-	  	else
-	  		render 'new'
-	  	end
+		respond_to do |format|
+      		if @ticket_type.save
+        		format.html { redirect_to @ticket_type, notice: 'Ticket Type was successfully created.' }
+	        	format.json { render :show, status: :created, location: @ticket_type }
+	      	else
+	        	format.html { render :new }
+	        	format.json { render json: @ticket_type.errors, status: :unprocessable_entity }
+	      	end
+	    end
 	end
 
 	def update
 
 		@ticket_type = TicketType.find(params[:id])
-
-		if @ticket_type.update(ticket_type_params)
-			redirect_to @ticket_type
-		else
-		    render 'edit'
-		end
+		respond_to do |format|
+	    	if @ticket_type.update(ticket_type_params)
+	        	format.html { redirect_to @ticket_type, notice: 'Ticket Type was successfully updated.' }
+	        	format.json { render :show, status: :ok, location: @ticket_type }
+	      	else
+	        	format.html { render :edit }
+	        	format.json { render json: @ticket_type.errors, status: :unprocessable_entity }
+	      	end
+	    end
 	end
 
 	def destroy
-  		@ticket_type = TicketType.find(params[:id])
+  		@ticket_type = Ticket.find(params[:id])
   		@ticket_type.destroy
- 
-  		redirect_to ticket_types_path
+ 		respond_to do |format|
+	      format.html { redirect_to ticket_types_url, notice: 'Ticket Type was successfully destroyed.' }
+	      format.json { head :no_content }
+	    end
 	end
 
 
