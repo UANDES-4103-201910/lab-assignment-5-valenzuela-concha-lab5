@@ -45,7 +45,7 @@ class TicketTypesController < ApplicationController
 	end
 
 	def destroy
-  		@ticket_type = Ticket.find(params[:id])
+  		@ticket_type = TicketType.find(params[:id])
   		@ticket_type.destroy
  		respond_to do |format|
 	      format.html { redirect_to ticket_types_url, notice: 'Ticket Type was successfully destroyed.' }
@@ -57,7 +57,7 @@ class TicketTypesController < ApplicationController
 	private
 	  def ticket_type_params
 
-	    params.require(:ticket_type).permit(:event_id, :price, :ticket_zone_id)
+	    params.require(:ticket_type).permit(:event_id, :price, :ticket_zone_id) if params[:ticket_type]
 
 	  end
 end

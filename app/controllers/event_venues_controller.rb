@@ -19,7 +19,7 @@ class EventVenuesController < ApplicationController
   end
 
   def create
-    @event_venue = EventVenue.new(event_params)
+    @event_venue = EventVenue.new(event_venue_params)
     respond_to do |format|
           if @event_venue.save
             format.html { redirect_to @event_venue, notice: 'Event Venue was successfully created.' }

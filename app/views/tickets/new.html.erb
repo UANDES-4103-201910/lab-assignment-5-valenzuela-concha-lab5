@@ -17,12 +17,12 @@
 
   	<p>
 		<%= form.label :ticket_type_id %><br>
-		<%= form.text_field :ticket_type_id %>
+		<%= form.collection_select(:ticket_type_id, TicketType.all, :id, :id) %>
 	</p>
 
 	<p>
 		<%= form.label :order_id %><br>
-		<%= form.text_field :order_id %>
+		<%= form.collection_select(:order_id, Order.all, :id, :id) %>
 	</p>
 
 	<p>

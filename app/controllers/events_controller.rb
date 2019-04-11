@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 	end
 
 	def new
+		@event = Event.new
 	end
 
 	def edit
@@ -55,7 +56,7 @@ class EventsController < ApplicationController
 	def upcoming_events
 		list = []
 		for e in Event.all do
-			if (e[:start_date]- Date.today  < 3.months) && (e[:start_date] > Date.today)
+			if (e[:start_date]- Date.today  < 90) && (e[:start_date] > Date.today)
 				list << e
 			end
 		end
